@@ -19,4 +19,4 @@ FindSDL2 is a CMake module to locate SDL2 headers, libraries paths and additiona
 
 ### Notes
 
-On Mictosoft Windows platform modules expect to have environment variable SDL2_ROOT_DIR defined.
+On Microsoft Windows platform modules expect to have environment variable SDL2_ROOT_DIR defined.
