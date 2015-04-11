@@ -15,3 +15,8 @@ Example
     include_directories(${SDL2_INCLUDE_DIR})
     target_link_libraries(tgt ${SDL2_LIBRARIES})
     set_target_properties(tgt PROPERTIES LINK_FLAGS ${SDL2_LINK_FLAGS})
+
+
+Notes
+
+On Mictosoft Windows platform modules expect to have ennvironment variable SDL2_ROOT_DIR defined.
