@@ -9,7 +9,7 @@ FindSDL2 is a CMake module to locate SDL2 headers, libraries paths and additiona
   * SDL2_LINK_FLAGS (Additional linker flags for SDL2.)
   * SDL2_SHARED_LIBRARY_PATH (Paths to the SDL2 shared library.)
 
-Example
+### Example
 
     find_package(SDL2 REQUIRED)
     include_directories(${SDL2_INCLUDE_DIR})
@@ -17,6 +17,6 @@ Example
     set_target_properties(tgt PROPERTIES LINK_FLAGS ${SDL2_LINK_FLAGS})
 
 
-Notes
+### Notes
 
 On Mictosoft Windows platform modules expect to have ennvironment variable SDL2_ROOT_DIR defined.
