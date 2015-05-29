@@ -14,7 +14,7 @@
 # ``SDL2_INCLUDE_DIR``
 #  Path to the SDL2 include directory.
 # ``SDL2_LIBRARIES``
-#  Paths to the SDL2 libraries.
+#  SDL2 libraries.
 # ``SDL2_LINK_FLAGS``
 #  Additional linker flags for SDL2.
 # ``SDL2_SHARED_LIBRARY``
@@ -39,28 +39,28 @@ if (WIN32)
         if (MINGW)
             if (CMAKE_SIZEOF_VOID_P EQUAL 4)
                 find_path(SDL2_INCLUDE_DIR "SDL.h" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/include/SDL2" DOC "Path to the SDL2 include directory.")
-                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/lib")
-                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/lib")
+                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/lib" DOC "SDL2 library.")
+                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/lib" DOC "SDL2_main library.")
                 find_file(SDL2_SHARED_LIBRARY "SDL2.dll" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "i686-w64-mingw32/bin" DOC "Path to the SDL2 shared library.")
             elseif (CMAKE_SIZEOF_VOID_P EQUAL 8)
                 find_path(SDL2_INCLUDE_DIR "SDL.h" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/include/SDL2" DOC "Path to the SDL2 include directory.")
-                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/lib")
-                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/lib")
+                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/lib" DOC "SDL2 library.")
+                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/lib" DOC "SDL2_main library.")
                 find_file(SDL2_SHARED_LIBRARY "SDL2.dll" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "x86_64-w64-mingw32/bin" DOC "Path to the SDL2 shared library.")
             endif ()
         elseif (MSVC)
             find_path(SDL2_INCLUDE_DIR "SDL.h" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "include" DOC "Path to the SDL2 include directory.")
             if (CMAKE_SIZEOF_VOID_P EQUAL 4)
-                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x86")
-                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x86")
+                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x86" DOC "SDL2 library.")
+                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x86" DOC "SDL2_main library.")
                 find_file(SDL2_SHARED_LIBRARY "SDL2.dll" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x86" DOC "Path to the SDL2 shared library.")
             elseif (CMAKE_SIZEOF_VOID_P EQUAL 8)
-                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64")
-                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64")
-                find_file(SDL2_SHARED_LIBRARY SDL2.dll HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64" DOC "Path to the SDL2 shared library.")
+                find_library(SDL2_sdl2_LIBRARY SDL2 HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64" DOC "SDL2 library.")
+                find_library(SDL2_main_LIBRARY SDL2main HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64" DOC "SDL2_main library.")
+                find_file(SDL2_SHARED_LIBRARY "SDL2.dll" HINTS $ENV{SDL2_ROOT_DIR} PATH_SUFFIXES "lib/x64" DOC "Path to the SDL2 shared library.")
             endif ()
         endif ()
-        set(SDL2_LIBRARIES ${SDL2_main_LIBRARY} ${SDL2_sdl2_LIBRARY} CACHE STRING "Paths to the SDL2 libraries.")
+        set(SDL2_LIBRARIES ${SDL2_main_LIBRARY} ${SDL2_sdl2_LIBRARY} CACHE STRING "SDL2 libraries.")
         if (MINGW)
             set(SDL2_LIBRARIES mingw32 ${SDL2_LIBRARIES})
             set(SDL2_LINK_FLAGS "-mwindows" CACHE STRING "Additional linker flags for SDL2.")
